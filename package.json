@@ -42,8 +42,8 @@
     "postcss-combine-media-query": "^1.0.1",
     "postcss-loader": "^5.3.0",
     "purgecss-whitelister": "^2.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.77.8",
     "sass-loader": "^11.1.1",
@@ -57,5 +57,10 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production --env prod",
     "start": "cross-env NODE_ENV=development webpack serve --mode development --progress"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1"
   }
 }
