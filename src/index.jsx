@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // Import from 'react-dom/client' for React 18
+import App from './App';
+import './index.css'; // Make sure this path is correct
 
-    <% if (htmlWebpackPlugin.options.description) { %>
-    <meta
-      name="description"
-      content="<% htmlWebpackPlugin.options.description %>"
-    />
-    <% } %> <% if (htmlWebpackPlugin.options.mobileThemeColor) { %>
-    <meta
-      name="theme-color"
-      content="<% htmlWebpackPlugin.options.mobileThemeColor %>"
-    />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="<% htmlWebpackPlugin.options.mobileThemeColor %>"
-    />
-    <% } %>
+// Use createRoot instead of ReactDOM.render
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
 
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
-</html>
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

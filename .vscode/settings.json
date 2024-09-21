@@ -1,0 +1,58 @@
+{
+    "liveServer.settings.port": 5501,
+    "hidefiles.configurationType": "local",
+    "hidefiles.globalConfig": {
+        "profiles": [
+            {
+                "name": "Default",
+                "detail": "",
+                "description": "Test",
+                "hidden": [
+                    ".vscode/"
+                ],
+                "peek": []
+            },
+            {
+                "name": "Strict",
+                "detail": "Hide everything not immediately required",
+                "hidden": [
+                    "$Default"
+                ]
+            },
+            {
+                "hidden": [
+                    ".prettierrc",
+                    "package.json",
+                    "after-compile-plugin.js",
+                    ".gitignore",
+                    ".prettierignore",
+                    ".env",
+                    "postcss.config.js",
+                    "package-lock.json",
+                    "README.md"
+                ],
+                "name": "Reddit",
+                "description": "",
+                "detail": "",
+                "peek": []
+            }
+        ]
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ".prettierrc": true,
+        "package.json": true,
+        "after-compile-plugin.js": true,
+        ".gitignore": true,
+        ".prettierignore": true,
+        ".env": true,
+        "postcss.config.js": true,
+        "package-lock.json": true,
+        "README.md": true
+    },
+    "hidefiles.selectedProfile": "Reddit"
+}
