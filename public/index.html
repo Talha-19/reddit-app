@@ -1,40 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Reddit client" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpvoteVerse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#a5b4fc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 theme-transition">
+    <div id="vanta-bg" class="fixed inset-0 -z-10 opacity-20"></div>
+    
+    <header class="bg-primary dark:bg-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="arrow-up-circle" class="w-8 h-8 text-secondary"></i>
+                <h1 class="text-2xl font-bold">UpvoteVerse</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search posts..." 
+                           class="bg-white dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-secondary w-64">
+                    <i data-feather="search" class="absolute right-3 top-2.5 text-gray-400 w-4 h-4"></i>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white hover:bg-opacity-10">
+                    <i data-feather="moon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>RedditMinimal</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">Popular Discussions</h2>
+            <p class="text-gray-600 dark:text-gray-300">Browse the hottest topics right now</p>
+        </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Post 1 -->
+            <div class="post-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200">
+                <div class="p-5">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex flex-col items-center">
+                            <button class="text-gray-400 hover:text-primary focus:outline-none">
+                                <i data-feather="chevron-up" class="w-6 h-6"></i>
+                            </button>
+                            <span class="font-bold text-gray-800 dark:text-white">4.2k</span>
+                            <button class="text-gray-400 hover:text-secondary focus:outline-none">
+                                <i data-feather="chevron-down" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-1">
+                                <span>Posted by u/tech_enthusiast</span>
+                                <span class="mx-1">•</span>
+                                <span>5h ago</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">The Future of AI in Everyday Life</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Exploring how artificial intelligence is becoming an integral part of our daily routines...</p>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="message-circle" class="w-4 h-4 mr-1"></i>
+                                    <span>127 comments</span>
+                                </div>
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="share-2" class="w-4 h-4 mr-1"></i>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+            <!-- Post 2 -->
+            <div class="post-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200">
+                <div class="p-5">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex flex-col items-center">
+                            <button class="text-gray-400 hover:text-primary focus:outline-none">
+                                <i data-feather="chevron-up" class="w-6 h-6"></i>
+                            </button>
+                            <span class="font-bold text-gray-800 dark:text-white">3.8k</span>
+                            <button class="text-gray-400 hover:text-secondary focus:outline-none">
+                                <i data-feather="chevron-down" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-1">
+                                <span>Posted by u/food_lover</span>
+                                <span class="mx-1">•</span>
+                                <span>7h ago</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">My Homemade Sourdough Recipe</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">After months of perfecting my starter, here's the recipe that consistently gives me perfect loaves...</p>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="message-circle" class="w-4 h-4 mr-1"></i>
+                                    <span>89 comments</span>
+                                </div>
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="share-2" class="w-4 h-4 mr-1"></i>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-200">
+                <div class="p-5">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex flex-col items-center">
+                            <button class="text-gray-400 hover:text-primary focus:outline-none">
+                                <i data-feather="chevron-up" class="w-6 h-6"></i>
+                            </button>
+                            <span class="font-bold text-gray-800 dark:text-white">2.5k</span>
+                            <button class="text-gray-400 hover:text-secondary focus:outline-none">
+                                <i data-feather="chevron-down" class="w-6 h-6"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-1">
+                                <span>Posted by u/travel_bug</span>
+                                <span class="mx-1">•</span>
+                                <span>10h ago</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Hidden Gems in Southeast Asia</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">After 6 months backpacking, here are the most incredible places that aren't in your guidebook...</p>
+                            <div class="flex items-center space-x-4 text-sm">
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="message-circle" class="w-4 h-4 mr-1"></i>
+                                    <span>156 comments</span>
+                                </div>
+                                <div class="flex items-center text-gray-500 dark:text-gray-400">
+                                    <i data-feather="share-2" class="w-4 h-4 mr-1"></i>
+                                    <span>Share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+            <button class="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-full shadow-md transition-all duration-200 flex items-center">
+                <span>Load More</span>
+                <i data-feather="chevron-down" class="w-5 h-5 ml-2"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i data-feather="arrow-up-circle" class="w-6 h-6 text-secondary"></i>
+                        <span class="text-xl font-bold">UpvoteVerse</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">The community-driven content platform</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+            updateThemeIcon(isDark);
+        });
+
+        function updateThemeIcon(isDark) {
+            const icon = themeToggle.querySelector('i');
+            if (isDark) {
+                icon.setAttribute('data-feather', 'sun');
+            } else {
+                icon.setAttribute('data-feather', 'moon');
+            }
+            feather.replace();
+        }
+
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('darkMode');
+        if (savedTheme === 'false') {
+            html.classList.remove('dark');
+        } else if (savedTheme === 'true' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+        updateThemeIcon(html.classList.contains('dark'));
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
 </html>
